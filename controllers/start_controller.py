@@ -5,30 +5,12 @@ from repository.user_repository import UserRepositoryDB
 from repository.check_repository import CheckRepositoryDB
 from model.cheque import Check
 from service.pay_menu import pay_menu
-# import logging
 import logging.config
 from logging_config import dict_config
 
+
 logging.config.dictConfig(dict_config)
 logger = logging.getLogger('start_controller')
-logger.setLevel('DEBUG')
-
-# logging.basicConfig(level='ERROR', format='%(asctime)s %(levelname)s:%(message)s')
-# logger = logging.getLogger('start_controller')
-# logger.setLevel(level='DEBUG')
-#
-# file_handler_error = logging.FileHandler('logfile.log')
-# file_handler_error.setLevel(level='ERROR')
-#
-# file_handler_info = logging.FileHandler('logfile.log')
-# file_handler_info.setLevel(level='DEBUG')
-#
-# console_handler = logging.StreamHandler()
-# console_handler.setLevel(level='DEBUG')
-#
-# logger.addHandler(file_handler_error)
-# logger.addHandler(file_handler_info)
-# logger.addHandler(console_handler)
 
 
 class StartController:

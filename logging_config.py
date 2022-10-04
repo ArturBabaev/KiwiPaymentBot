@@ -14,14 +14,22 @@ dict_config = {
         },
         'file': {
             'class': 'logging.FileHandler',
-            'level': 'DEBUG',
+            'level': 'ERROR',
             'formatter': 'base',
             'filename': 'logfile.log',
             'mode': 'a'
         }
     },
     'loggers': {
-        'module_logger': {
+        'main': {
+            'level': 'DEBUG',
+            'handlers': ['file', 'console'],
+        },
+        'start_controller': {
+            'level': 'DEBUG',
+            'handlers': ['file', 'console'],
+        },
+        'admin_controller': {
             'level': 'DEBUG',
             'handlers': ['file', 'console'],
         }

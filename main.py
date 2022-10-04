@@ -33,24 +33,6 @@ admin_controller = AdminController(bot=bot, user_repository_db=user_repository_d
 
 logging.config.dictConfig(dict_config)
 logger = logging.getLogger('main')
-logger.setLevel('DEBUG')
-
-# logging.basicConfig(level='ERROR', format='%(asctime)s %(levelname)s:%(message)s')
-# logger = logging.getLogger('main')
-# logger.setLevel(level='DEBUG')
-#
-# file_handler_error = logging.FileHandler('logfile.log')
-# file_handler_error.setLevel(level='ERROR')
-#
-# file_handler_info = logging.FileHandler('logfile.log')
-# file_handler_info.setLevel(level='DEBUG')
-#
-# console_handler = logging.StreamHandler()
-# console_handler.setLevel(level='DEBUG')
-#
-# logger.addHandler(file_handler_error)
-# logger.addHandler(file_handler_info)
-# logger.addHandler(console_handler)
 
 
 class Form(StatesGroup):
