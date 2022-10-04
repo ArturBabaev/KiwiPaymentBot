@@ -10,7 +10,8 @@ from aiogram.dispatcher.filters.state import State, StatesGroup
 from aiogram.dispatcher import FSMContext
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from typing import Union
-import logging
+import logging.config
+from logging_config import dict_config
 
 
 TOKEN = config('TOKEN')
@@ -30,22 +31,26 @@ start_controller = StartController(bot=bot, user_repository_db=user_repository_d
 admin_controller = AdminController(bot=bot, user_repository_db=user_repository_db,
                                    check_repository_db=check_repository_db, p2p=p2p, admin=ADMIN)
 
-logging.basicConfig(level='ERROR', format='%(asctime)s %(levelname)s:%(message)s')
+logging.config.dictConfig(dict_config)
 logger = logging.getLogger('main')
-logger.setLevel(level='DEBUG')
+logger.setLevel('DEBUG')
 
-file_handler_error = logging.FileHandler('logs_error.log')
-file_handler_error.setLevel(level='ERROR')
-
-file_handler_info = logging.FileHandler('logs_info.log')
-file_handler_info.setLevel(level='DEBUG')
-
-console_handler = logging.StreamHandler()
-console_handler.setLevel(level='DEBUG')
-
-logger.addHandler(file_handler_error)
-logger.addHandler(file_handler_info)
-logger.addHandler(console_handler)
+# logging.basicConfig(level='ERROR', format='%(asctime)s %(levelname)s:%(message)s')
+# logger = logging.getLogger('main')
+# logger.setLevel(level='DEBUG')
+#
+# file_handler_error = logging.FileHandler('logfile.log')
+# file_handler_error.setLevel(level='ERROR')
+#
+# file_handler_info = logging.FileHandler('logfile.log')
+# file_handler_info.setLevel(level='DEBUG')
+#
+# console_handler = logging.StreamHandler()
+# console_handler.setLevel(level='DEBUG')
+#
+# logger.addHandler(file_handler_error)
+# logger.addHandler(file_handler_info)
+# logger.addHandler(console_handler)
 
 
 class Form(StatesGroup):
